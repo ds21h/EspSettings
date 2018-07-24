@@ -174,10 +174,8 @@
                       <Component id="filler1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnLees" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnReset" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnReset" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLees" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSchrijf" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
