@@ -12,17 +12,21 @@ import org.json.JSONObject;
  * @author Jan
  */
 class Setting {
+
     private static String[] mHexWaarde = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
     static int cMacLengte = 6;
+    static int cIpLengte = 4;
 
     private String mLAN;
     private String mWachtwoord;
-    private String mMAC;
     private int[] mMacPos;
     private String mNaam;
     private String mOmschr;
     private int mLogNiveau;
     private boolean mDrukknop;
+    private int mAutoOff;
+    private int[] mServerIpPos;
+    private int mServerPort;
     private boolean mReset;
     private boolean mGeldig;
 
@@ -30,9 +34,9 @@ class Setting {
         int lTeller;
 
         mMacPos = new int[cMacLengte];
+        mServerIpPos = new int[cIpLengte];
         mLAN = "";
         mWachtwoord = "";
-        mMAC = "";
         for (lTeller = 0; lTeller < mMacPos.length; lTeller++) {
             mMacPos[lTeller] = 0;
         }
@@ -40,6 +44,11 @@ class Setting {
         mOmschr = "";
         mLogNiveau = 0;
         mDrukknop = false;
+        mAutoOff = 0;
+        for (lTeller = 0; lTeller < mServerIpPos.length; lTeller++) {
+            mServerIpPos[lTeller] = 0;
+        }
+        mServerPort = 0;
         mReset = false;
         mGeldig = false;
     }
@@ -52,96 +61,156 @@ class Setting {
         return mLAN;
     }
 
-    void xLAN(String pLAN){
+    void xLAN(String pLAN) {
         mLAN = pLAN;
     }
-    
+
     String xWachtwoord() {
         return mWachtwoord;
     }
 
-    void xWachtwoord(String pWachtwoord){
+    void xWachtwoord(String pWachtwoord) {
         mWachtwoord = pWachtwoord;
     }
-    
-    int xMacPos(int pPos){
-        if (pPos >= 0 && pPos < cMacLengte){
+
+    int xMacPos(int pPos) {
+        if (pPos >= 0 && pPos < cMacLengte) {
             return mMacPos[pPos];
         } else {
             return -1;
         }
     }
-    
-    void xMacPos(int pPos, int pValue){
-        if (pPos >= 0 && pPos < cMacLengte){
-            if (pValue >= 0 && pValue <= 255){
+
+    void xMacPos(int pPos, int pValue) {
+        if (pPos >= 0 && pPos < cMacLengte) {
+            if (pValue >= 0 && pValue <= 255) {
                 mMacPos[pPos] = pValue;
             }
         }
-    } 
-    
+    }
+
     String xNaam() {
         return mNaam;
     }
 
-    void xNaam(String pNaam){
+    void xNaam(String pNaam) {
         mNaam = pNaam;
     }
-    
+
     String xOmschr() {
         return mOmschr;
     }
 
-    void xOmschr(String pOmschr){
+    void xOmschr(String pOmschr) {
         mOmschr = pOmschr;
     }
-    
+
     int xLogNiveau() {
         return mLogNiveau;
     }
 
-    void xLogNiveau(int pLogNiveau){
+    void xLogNiveau(int pLogNiveau) {
         mLogNiveau = pLogNiveau;
     }
-    
+
     boolean xDrukknop() {
         return mDrukknop;
     }
-    
-    void xDrukknop(boolean pDrukknop){
+
+    void xDrukknop(boolean pDrukknop) {
         mDrukknop = pDrukknop;
+    }
+
+    int xAutoOff(){
+        return mAutoOff;
+    }
+    
+    void xAutoOff(int pAutoOff){
+        mAutoOff = pAutoOff;
+    }
+    
+    int xServerIpPos(int pPos) {
+        if (pPos >= 0 && pPos < cIpLengte) {
+            return mServerIpPos[pPos];
+        } else {
+            return -1;
+        }
+    }
+
+    void xServerIpPos(int pPos, int pValue) {
+        if (pPos >= 0 && pPos < cIpLengte) {
+            if (pValue >= 0 && pValue <= 255) {
+                mServerIpPos[pPos] = pValue;
+            }
+        }
+    }
+
+    int xServerPort() {
+        return mServerPort;
+    }
+
+    void xServerPort(int pPort) {
+        if (pPort >= 0 && pPort <= 65535) {
+            mServerPort = pPort;
+        }
     }
 
     void xSetting(JSONObject lSetting) {
         String lResultaat;
         int lTeller;
         int lStart;
-        String lPos;
+        String lMacPos;
+        String lMac;
+        String lServerIp;
+        int[] lIpPos;
+        String[] lGroups;
 
         lResultaat = lSetting.optString("result", "Fout JSON antwoord");
         if (lResultaat.equals("OK")) {
             mGeldig = true;
             mLAN = lSetting.optString("ssid", "");
             mWachtwoord = lSetting.optString("password", "");
-            mMAC = lSetting.optString("mac", "");
+            lMac = lSetting.optString("mac", "");
             for (lTeller = 0; lTeller < mMacPos.length; lTeller++) {
                 lStart = lTeller * 3;
-                lPos = mMAC.substring(lStart, lStart + 2);
-                mMacPos[lTeller] = xHexToInt(lPos);
+                lMacPos = lMac.substring(lStart, lStart + 2);
+                mMacPos[lTeller] = xHexToInt(lMacPos);
             }
             mNaam = lSetting.optString("name", "");
             mOmschr = lSetting.optString("descr", "");
             mLogNiveau = lSetting.optInt("loglevel", 0);
             mDrukknop = (lSetting.optString("button", "off").equals("on")) ? true : false;
+            mAutoOff = lSetting.optInt("auto-off", 0);
+            lServerIp = lSetting.optString("serverip", "");
+            lGroups = lServerIp.split("\\.");
+            if (lGroups.length == cIpLengte) {
+                lIpPos = new int[cIpLengte];
+                for (lTeller = 0; lTeller < lGroups.length; lTeller++) {
+                    if (lGroups[lTeller].length() > 0) {
+                        try {
+                            lIpPos[lTeller] = Integer.parseInt(lGroups[lTeller]);
+                        } catch (NumberFormatException pExc) {
+                            break;
+                        }
+                        if (lIpPos[lTeller] < 0 || lIpPos[lTeller] > 255) {
+                            break;
+                        }
+                    }
+                }
+                if (lTeller >= lGroups.length) {
+                    mServerIpPos = lIpPos;
+                }
+                mServerPort = lSetting.optInt("serverport", 0);
+            }
         } else {
             mGeldig = false;
         }
     }
 
-    JSONObject xSetting(){
+    JSONObject xSetting() {
         JSONObject lSetting;
         String lMAC;
-        
+
         lSetting = new JSONObject();
         lSetting.put("ssid", mLAN);
         lSetting.put("password", mWachtwoord);
@@ -151,17 +220,20 @@ class Setting {
         lSetting.put("descr", mOmschr);
         lSetting.put("loglevel", mLogNiveau);
         lSetting.put("button", (mDrukknop) ? "on" : "off");
+        lSetting.put("auto-off", mAutoOff);
+        lSetting.put("serverip", String.valueOf(mServerIpPos[0]) + "." + String.valueOf(mServerIpPos[1]) + "." + String.valueOf(mServerIpPos[2]) + "." + String.valueOf(mServerIpPos[3]));
+        lSetting.put("serverport", mServerPort);
         return lSetting;
     }
 
-    JSONObject xSettingReset(){
+    JSONObject xSettingReset() {
         JSONObject lSetting;
-       
+
         lSetting = new JSONObject();
         lSetting.put("reset", "true");
         return lSetting;
     }
-    
+
     static int xHexToInt(String pHex) {
         int lResult;
         String lPos1;
@@ -190,7 +262,7 @@ class Setting {
                         break;
                     }
                 }
-                if (lWaarde2 < 0){
+                if (lWaarde2 < 0) {
                     lResult = -1;
                 } else {
                     lResult = (lWaarde1 * 16) + lWaarde2;
@@ -201,18 +273,29 @@ class Setting {
         }
         return lResult;
     }
-    
-    static String xIntToHex(int pInt){
+
+    static String xIntToHex(int pInt) {
         String lResult;
         int lPos1;
         int lPos2;
-        
-        if (pInt < 0 || pInt > 255){
+
+        if (pInt < 0 || pInt > 255) {
             lResult = "";
         } else {
             lPos1 = pInt / 16;
             lPos2 = pInt % 16;
             lResult = mHexWaarde[lPos1] + mHexWaarde[lPos2];
+        }
+        return lResult;
+    }
+
+    static int xStrToInt(String pStr) {
+        int lResult;
+
+        try {
+            lResult = Integer.parseInt(pStr);
+        } catch (NumberFormatException pExc) {
+            lResult = -1;
         }
         return lResult;
     }

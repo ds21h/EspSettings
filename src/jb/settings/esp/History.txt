@@ -1,0 +1,7 @@
+History
+
+Version 1.0 - 25-07-2018
+- First version. Simple desktop to edit the settings of a ESP8266 switch
+
+Version 1.1 - 30-07-2018
+- Auto-off time added
