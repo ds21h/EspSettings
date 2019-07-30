@@ -66,6 +66,16 @@ public class FrmSettings extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        lbUpgradeServer = new javax.swing.JLabel();
+        lbServerIP = new javax.swing.JLabel();
+        txtServerIP1 = new javax.swing.JTextField();
+        txtServerIP2 = new javax.swing.JTextField();
+        txtServerIP3 = new javax.swing.JTextField();
+        txtServerIP4 = new javax.swing.JTextField();
+        txtServerPort = new javax.swing.JTextField();
+        lbServerPort = new javax.swing.JLabel();
+        lbAutoOff = new javax.swing.JLabel();
+        txtAutoOff = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Settings Esp schakelaar");
@@ -251,6 +261,82 @@ public class FrmSettings extends javax.swing.JFrame {
             }
         });
 
+        lbUpgradeServer.setText("Upgrade Server");
+        lbUpgradeServer.setToolTipText("");
+
+        lbServerIP.setText("IP:");
+        lbServerIP.setToolTipText("");
+
+        txtServerIP1.setToolTipText("");
+        txtServerIP1.setMaximumSize(new java.awt.Dimension(6, 20));
+        txtServerIP1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtServerIP1FocusLost(evt);
+            }
+        });
+        txtServerIP1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtServerIP1KeyTyped(evt);
+            }
+        });
+
+        txtServerIP2.setToolTipText("");
+        txtServerIP2.setMaximumSize(new java.awt.Dimension(6, 20));
+        txtServerIP2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtServerIP2FocusLost(evt);
+            }
+        });
+        txtServerIP2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtServerIP2KeyTyped(evt);
+            }
+        });
+
+        txtServerIP3.setToolTipText("");
+        txtServerIP3.setMaximumSize(new java.awt.Dimension(6, 20));
+        txtServerIP3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtServerIP3FocusLost(evt);
+            }
+        });
+        txtServerIP3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtServerIP3KeyTyped(evt);
+            }
+        });
+
+        txtServerIP4.setToolTipText("");
+        txtServerIP4.setMaximumSize(new java.awt.Dimension(6, 20));
+        txtServerIP4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtServerIP4FocusLost(evt);
+            }
+        });
+        txtServerIP4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtServerIP4KeyTyped(evt);
+            }
+        });
+
+        txtServerPort.setToolTipText("");
+        txtServerPort.setMaximumSize(new java.awt.Dimension(6, 20));
+        txtServerPort.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtServerPortFocusLost(evt);
+            }
+        });
+        txtServerPort.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtServerPortKeyTyped(evt);
+            }
+        });
+
+        lbServerPort.setText("Port:");
+        lbServerPort.setToolTipText("");
+
+        lbAutoOff.setText("Auto Off (sec)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -283,32 +369,37 @@ public class FrmSettings extends javax.swing.JFrame {
                                     .addGap(0, 0, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtLAN, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(cmbLogNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(chkDrukknop))
-                                            .addComponent(txtNaam, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtOmschr, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGap(34, 34, 34)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtMAC1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtMAC2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtMAC3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtMAC4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtMAC5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtMAC6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addGap(9, 9, 9)
-                                            .addComponent(txtWachtwoord, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(txtWachtwoord, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbServerPort)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtServerPort, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addComponent(cmbLogNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(chkDrukknop))
+                                                .addComponent(txtNaam, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtOmschr, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addGap(34, 34, 34)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txtMAC1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtMAC2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtMAC3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtMAC4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtMAC5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtMAC6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnReset)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -322,11 +413,28 @@ public class FrmSettings extends javax.swing.JFrame {
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnLees)
-                        .addGap(73, 73, 73)
-                        .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbUpgradeServer)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbServerIP)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtServerIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtServerIP2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtServerIP3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtServerIP4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnLees)
+                                .addGap(73, 73, 73)
+                                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbAutoOff)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtAutoOff, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -353,7 +461,11 @@ public class FrmSettings extends javax.swing.JFrame {
                     .addComponent(lbLogNiveau)
                     .addComponent(cmbLogNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chkDrukknop))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbAutoOff)
+                    .addComponent(txtAutoOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbLAN)
                     .addComponent(txtLAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -371,11 +483,22 @@ public class FrmSettings extends javax.swing.JFrame {
                         .addComponent(txtMAC5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtMAC6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbMAC))
-                .addGap(18, 18, 18)
+                .addGap(18, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbUpgradeServer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbServerIP)
+                            .addComponent(txtServerIP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtServerIP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtServerIP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtServerIP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtServerPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbServerPort))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnReset)
                             .addComponent(btnLees)
@@ -520,6 +643,46 @@ public class FrmSettings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnResetActionPerformed
 
+    private void txtServerIP1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtServerIP1FocusLost
+        sTestIPField(txtServerIP1);
+    }//GEN-LAST:event_txtServerIP1FocusLost
+
+    private void txtServerIP2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtServerIP2FocusLost
+        sTestIPField(txtServerIP2);
+    }//GEN-LAST:event_txtServerIP2FocusLost
+
+    private void txtServerIP3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtServerIP3FocusLost
+        sTestIPField(txtServerIP3);
+    }//GEN-LAST:event_txtServerIP3FocusLost
+
+    private void txtServerIP4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtServerIP4FocusLost
+        sTestIPField(txtServerIP4);
+    }//GEN-LAST:event_txtServerIP4FocusLost
+
+    private void txtServerIP1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtServerIP1KeyTyped
+        hInputCijfer(evt);
+    }//GEN-LAST:event_txtServerIP1KeyTyped
+
+    private void txtServerIP2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtServerIP2KeyTyped
+        hInputCijfer(evt);
+    }//GEN-LAST:event_txtServerIP2KeyTyped
+
+    private void txtServerIP3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtServerIP3KeyTyped
+        hInputCijfer(evt);
+    }//GEN-LAST:event_txtServerIP3KeyTyped
+
+    private void txtServerIP4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtServerIP4KeyTyped
+        hInputCijfer(evt);
+    }//GEN-LAST:event_txtServerIP4KeyTyped
+
+    private void txtServerPortKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtServerPortKeyTyped
+        hInputCijfer(evt);
+    }//GEN-LAST:event_txtServerPortKeyTyped
+
+    private void txtServerPortFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtServerPortFocusLost
+        sTestPortField(txtServerPort);
+    }//GEN-LAST:event_txtServerPortFocusLost
+
     private void hInputCijfer(KeyEvent pEvent) {
         char lInput;
 
@@ -558,6 +721,30 @@ public class FrmSettings extends javax.swing.JFrame {
             pIP.setForeground(Color.BLACK);
         } else {
             pIP.setForeground(Color.red);
+        }
+        return lOK;
+    }
+
+    private boolean sTestPortField(JTextField pPort) {
+        String lTekst;
+        boolean lOK;
+        int lComp;
+
+        lTekst = pPort.getText().trim();
+        try {
+            lComp = Integer.parseInt(lTekst);
+            if (lComp < 0 || lComp > 65535) {
+                lOK = false;
+            } else {
+                lOK = true;
+            }
+        } catch (NumberFormatException pExc) {
+            lOK = false;
+        }
+        if (lOK) {
+            pPort.setForeground(Color.BLACK);
+        } else {
+            pPort.setForeground(Color.red);
         }
         return lOK;
     }
@@ -622,6 +809,12 @@ public class FrmSettings extends javax.swing.JFrame {
             txtOmschr.setText(mSetting.xOmschr());
             txtWachtwoord.setText(mSetting.xWachtwoord());
             chkDrukknop.setSelected(mSetting.xDrukknop());
+            txtAutoOff.setText(String.valueOf(mSetting.xAutoOff()));
+            txtServerIP1.setText(String.valueOf(mSetting.xServerIpPos(0)));
+            txtServerIP2.setText(String.valueOf(mSetting.xServerIpPos(1)));
+            txtServerIP3.setText(String.valueOf(mSetting.xServerIpPos(2)));
+            txtServerIP4.setText(String.valueOf(mSetting.xServerIpPos(3)));
+            txtServerPort.setText(String.valueOf(mSetting.xServerPort()));
             sInvulScherm(true);
         } else {
             lbMelding.setText("Ongeldige settings");
@@ -642,6 +835,12 @@ public class FrmSettings extends javax.swing.JFrame {
         txtOmschr.setEnabled(pEnable);
         txtWachtwoord.setEnabled(pEnable);
         chkDrukknop.setEnabled(pEnable);
+        txtAutoOff.setEnabled(pEnable);
+        txtServerIP1.setEnabled(pEnable);
+        txtServerIP2.setEnabled(pEnable);
+        txtServerIP3.setEnabled(pEnable);
+        txtServerIP4.setEnabled(pEnable);
+        txtServerPort.setEnabled(pEnable);
         btnReset.setEnabled(pEnable);
         btnSchrijf.setEnabled(pEnable);
     }
@@ -661,6 +860,7 @@ public class FrmSettings extends javax.swing.JFrame {
             }
             mSetting.xLogNiveau(lLogNiveau);
             mSetting.xDrukknop(chkDrukknop.isSelected());
+            mSetting.xAutoOff(Setting.xStrToInt(txtAutoOff.getText()));
             mSetting.xLAN(txtLAN.getText().trim());
             mSetting.xWachtwoord(txtWachtwoord.getText().trim());
             mSetting.xMacPos(0, Setting.xHexToInt(txtMAC1.getText()));
@@ -669,6 +869,11 @@ public class FrmSettings extends javax.swing.JFrame {
             mSetting.xMacPos(3, Setting.xHexToInt(txtMAC4.getText()));
             mSetting.xMacPos(4, Setting.xHexToInt(txtMAC5.getText()));
             mSetting.xMacPos(5, Setting.xHexToInt(txtMAC6.getText()));
+            mSetting.xServerIpPos(0, Setting.xStrToInt(txtServerIP1.getText()));
+            mSetting.xServerIpPos(1, Setting.xStrToInt(txtServerIP2.getText()));
+            mSetting.xServerIpPos(2, Setting.xStrToInt(txtServerIP3.getText()));
+            mSetting.xServerIpPos(3, Setting.xStrToInt(txtServerIP4.getText()));
+            mSetting.xServerPort(Setting.xStrToInt(txtServerPort.getText()));
 
             lResult = sSchrijfSetting(false);
             if (lResult == Resultaat.cResultOK) {
@@ -680,8 +885,12 @@ public class FrmSettings extends javax.swing.JFrame {
     }
 
     private boolean sTestScherm() {
+        String[] lMelding;
+        int lMeldNr;
         boolean lOK;
 
+        lMelding = new String[5];
+        lMeldNr = 0;
         lOK = true;
         if (!sTestMACField(txtMAC1)) {
             lOK = false;
@@ -701,12 +910,42 @@ public class FrmSettings extends javax.swing.JFrame {
         if (!sTestMACField(txtMAC6)) {
             lOK = false;
         }
-        if (lOK) {
-            lbMelding.setText("");
-        } else {
-            lbMelding.setText("Onjuiste MAC");
+        if (!lOK) {
+            lMelding[lMeldNr] = "Onjuiste MAC";
+            lMeldNr++;
         }
-        return lOK;
+        lOK = true;
+        if (!sTestIPField(txtServerIP1)){
+            lOK = false;
+        }
+        if (!sTestIPField(txtServerIP2)){
+            lOK = false;
+        }
+        if (!sTestIPField(txtServerIP3)){
+            lOK = false;
+        }
+        if (!sTestIPField(txtServerIP4)){
+            lOK = false;
+        }
+        if (!lOK){
+            lMelding[lMeldNr] = "Onjuiste Server IP";
+            lMeldNr++;
+        }
+        if (!sTestIPField(txtServerIP4)){
+            lMelding[lMeldNr] = "Onjuiste Server Port";
+            lMeldNr++;
+        }
+        if (lMeldNr == 0){
+            lbMelding.setText("");
+            return true;
+        } else {
+            if (lMeldNr > 1){
+                lbMelding.setText("***" + lMelding[0]);
+            } else {
+                lbMelding.setText(lMelding[0]);
+            }
+            return false;
+        }
     }
 
     private int sSchrijfSetting(boolean pReset) {
@@ -780,6 +1019,7 @@ public class FrmSettings extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
+    private javax.swing.JLabel lbAutoOff;
     private javax.swing.JLabel lbIP;
     private javax.swing.JLabel lbLAN;
     private javax.swing.JLabel lbLogNiveau;
@@ -787,7 +1027,11 @@ public class FrmSettings extends javax.swing.JFrame {
     private javax.swing.JLabel lbMelding;
     private javax.swing.JLabel lbNaam;
     private javax.swing.JLabel lbOmschr;
+    private javax.swing.JLabel lbServerIP;
+    private javax.swing.JLabel lbServerPort;
+    private javax.swing.JLabel lbUpgradeServer;
     private javax.swing.JLabel lbWachtwoord;
+    private javax.swing.JTextField txtAutoOff;
     private javax.swing.JTextField txtIP1;
     private javax.swing.JTextField txtIP2;
     private javax.swing.JTextField txtIP3;
@@ -801,6 +1045,11 @@ public class FrmSettings extends javax.swing.JFrame {
     private javax.swing.JTextField txtMAC6;
     private javax.swing.JTextField txtNaam;
     private javax.swing.JTextField txtOmschr;
+    private javax.swing.JTextField txtServerIP1;
+    private javax.swing.JTextField txtServerIP2;
+    private javax.swing.JTextField txtServerIP3;
+    private javax.swing.JTextField txtServerIP4;
+    private javax.swing.JTextField txtServerPort;
     private javax.swing.JTextField txtWachtwoord;
     // End of variables declaration//GEN-END:variables
 }
