@@ -5,6 +5,7 @@
  */
 package jb.settings.esp;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -121,14 +122,14 @@ class Setting {
         mDrukknop = pDrukknop;
     }
 
-    int xAutoOff(){
+    int xAutoOff() {
         return mAutoOff;
     }
-    
-    void xAutoOff(int pAutoOff){
+
+    void xAutoOff(int pAutoOff) {
         mAutoOff = pAutoOff;
     }
-    
+
     int xServerIpPos(int pPos) {
         if (pPos >= 0 && pPos < cIpLengte) {
             return mServerIpPos[pPos];
@@ -212,17 +213,21 @@ class Setting {
         String lMAC;
 
         lSetting = new JSONObject();
-        lSetting.put("ssid", mLAN);
-        lSetting.put("password", mWachtwoord);
-        lMAC = xIntToHex(mMacPos[0]) + ":" + xIntToHex(mMacPos[1]) + ":" + xIntToHex(mMacPos[2]) + ":" + xIntToHex(mMacPos[3]) + ":" + xIntToHex(mMacPos[4]) + ":" + xIntToHex(mMacPos[5]);
-        lSetting.put("mac", lMAC);
-        lSetting.put("name", mNaam);
-        lSetting.put("descr", mOmschr);
-        lSetting.put("loglevel", mLogNiveau);
-        lSetting.put("button", (mDrukknop) ? "on" : "off");
-        lSetting.put("auto-off", mAutoOff);
-        lSetting.put("serverip", String.valueOf(mServerIpPos[0]) + "." + String.valueOf(mServerIpPos[1]) + "." + String.valueOf(mServerIpPos[2]) + "." + String.valueOf(mServerIpPos[3]));
-        lSetting.put("serverport", mServerPort);
+        try {
+            lSetting.put("ssid", mLAN);
+            lSetting.put("password", mWachtwoord);
+            lMAC = xIntToHex(mMacPos[0]) + ":" + xIntToHex(mMacPos[1]) + ":" + xIntToHex(mMacPos[2]) + ":" + xIntToHex(mMacPos[3]) + ":" + xIntToHex(mMacPos[4]) + ":" + xIntToHex(mMacPos[5]);
+            lSetting.put("mac", lMAC);
+            lSetting.put("name", mNaam);
+            lSetting.put("descr", mOmschr);
+            lSetting.put("loglevel", mLogNiveau);
+            lSetting.put("button", (mDrukknop) ? "on" : "off");
+            lSetting.put("auto-off", mAutoOff);
+            lSetting.put("serverip", String.valueOf(mServerIpPos[0]) + "." + String.valueOf(mServerIpPos[1]) + "." + String.valueOf(mServerIpPos[2]) + "." + String.valueOf(mServerIpPos[3]));
+            lSetting.put("serverport", mServerPort);
+        } catch (JSONException pExc) {
+
+        }
         return lSetting;
     }
 
@@ -230,7 +235,11 @@ class Setting {
         JSONObject lSetting;
 
         lSetting = new JSONObject();
-        lSetting.put("reset", "true");
+        try {
+            lSetting.put("reset", "true");
+        } catch (JSONException pExc) {
+
+        }
         return lSetting;
     }
 
