@@ -23,6 +23,7 @@ class Setting {
     private int[] mMacPos;
     private String mNaam;
     private String mOmschr;
+    private int mModel;
     private int mLogNiveau;
     private boolean mDrukknop;
     private int mAutoOff;
@@ -43,6 +44,7 @@ class Setting {
         }
         mNaam = "";
         mOmschr = "";
+        mModel = 1;
         mLogNiveau = 0;
         mDrukknop = false;
         mAutoOff = 0;
@@ -106,6 +108,14 @@ class Setting {
         mOmschr = pOmschr;
     }
 
+    int xModel(){
+        return mModel;
+    }
+    
+    void xModel(int pModel){
+        mModel = pModel;
+    }
+    
     int xLogNiveau() {
         return mLogNiveau;
     }
@@ -179,6 +189,7 @@ class Setting {
             }
             mNaam = lSetting.optString("name", "");
             mOmschr = lSetting.optString("descr", "");
+            mModel = lSetting.optInt("model", 1);
             mLogNiveau = lSetting.optInt("loglevel", 0);
             mDrukknop = (lSetting.optString("button", "off").equals("on")) ? true : false;
             mAutoOff = lSetting.optInt("auto-off", 0);
@@ -220,6 +231,7 @@ class Setting {
             lSetting.put("mac", lMAC);
             lSetting.put("name", mNaam);
             lSetting.put("descr", mOmschr);
+            lSetting.put("model", mModel);
             lSetting.put("loglevel", mLogNiveau);
             lSetting.put("button", (mDrukknop) ? "on" : "off");
             lSetting.put("auto-off", mAutoOff);

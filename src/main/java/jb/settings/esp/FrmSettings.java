@@ -38,44 +38,43 @@ public class FrmSettings extends javax.swing.JFrame {
 
         lbIP = new javax.swing.JLabel();
         txtIP1 = new javax.swing.JTextField();
+        txtIP2 = new javax.swing.JTextField();
+        txtIP3 = new javax.swing.JTextField();
+        txtIP4 = new javax.swing.JTextField();
+        lbMelding = new javax.swing.JLabel();
         lbNaam = new javax.swing.JLabel();
         txtNaam = new javax.swing.JTextField();
         lbOmschr = new javax.swing.JLabel();
         txtOmschr = new javax.swing.JTextField();
+        lbLogNiveau = new javax.swing.JLabel();
+        cmbLogNiveau = new javax.swing.JComboBox<>();
+        chkDrukknop = new javax.swing.JCheckBox();
+        lbAutoOff = new javax.swing.JLabel();
+        txtAutoOff = new javax.swing.JTextField();
+        lbModel = new javax.swing.JLabel();
+        txtModel = new javax.swing.JTextField();
         lbLAN = new javax.swing.JLabel();
         txtLAN = new javax.swing.JTextField();
         lbWachtwoord = new javax.swing.JLabel();
         txtWachtwoord = new javax.swing.JTextField();
         lbMAC = new javax.swing.JLabel();
-        lbLogNiveau = new javax.swing.JLabel();
-        chkDrukknop = new javax.swing.JCheckBox();
-        btnLees = new javax.swing.JButton();
-        lbMelding = new javax.swing.JLabel();
-        txtIP2 = new javax.swing.JTextField();
-        txtIP3 = new javax.swing.JTextField();
-        txtIP4 = new javax.swing.JTextField();
-        btnSchrijf = new javax.swing.JButton();
-        cmbLogNiveau = new javax.swing.JComboBox<>();
         txtMAC1 = new javax.swing.JTextField();
         txtMAC2 = new javax.swing.JTextField();
         txtMAC3 = new javax.swing.JTextField();
         txtMAC4 = new javax.swing.JTextField();
         txtMAC5 = new javax.swing.JTextField();
         txtMAC6 = new javax.swing.JTextField();
-        btnReset = new javax.swing.JButton();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         lbUpgradeServer = new javax.swing.JLabel();
         lbServerIP = new javax.swing.JLabel();
         txtServerIP1 = new javax.swing.JTextField();
         txtServerIP2 = new javax.swing.JTextField();
         txtServerIP3 = new javax.swing.JTextField();
         txtServerIP4 = new javax.swing.JTextField();
-        txtServerPort = new javax.swing.JTextField();
         lbServerPort = new javax.swing.JLabel();
-        lbAutoOff = new javax.swing.JLabel();
-        txtAutoOff = new javax.swing.JTextField();
+        txtServerPort = new javax.swing.JTextField();
+        btnLees = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        btnSchrijf = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Settings Esp schakelaar");
@@ -95,45 +94,6 @@ public class FrmSettings extends javax.swing.JFrame {
                 txtIP1KeyTyped(evt);
             }
         });
-
-        lbNaam.setText("Naam");
-
-        txtNaam.setToolTipText("");
-
-        lbOmschr.setText("Omschr.");
-        lbOmschr.setToolTipText("");
-
-        txtOmschr.setToolTipText("");
-
-        lbLAN.setText("LAN");
-        lbLAN.setToolTipText("");
-
-        txtLAN.setToolTipText("");
-
-        lbWachtwoord.setText("Wachtwoord");
-        lbWachtwoord.setToolTipText("");
-
-        txtWachtwoord.setToolTipText("");
-
-        lbMAC.setText("MAC");
-        lbMAC.setToolTipText("");
-
-        lbLogNiveau.setText("Logniveau");
-        lbLogNiveau.setToolTipText("");
-
-        chkDrukknop.setText("Drukknop");
-        chkDrukknop.setToolTipText("");
-
-        btnLees.setLabel("Lees");
-        btnLees.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLeesActionPerformed(evt);
-            }
-        });
-
-        lbMelding.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lbMelding.setForeground(new java.awt.Color(255, 0, 1));
-        lbMelding.setToolTipText("");
 
         txtIP2.setToolTipText("");
         txtIP2.setMaximumSize(new java.awt.Dimension(6, 20));
@@ -172,15 +132,49 @@ public class FrmSettings extends javax.swing.JFrame {
             }
         });
 
-        btnSchrijf.setText("Schrijf");
-        btnSchrijf.setToolTipText("");
-        btnSchrijf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSchrijfActionPerformed(evt);
+        lbMelding.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbMelding.setForeground(new java.awt.Color(255, 0, 1));
+        lbMelding.setToolTipText("");
+
+        lbNaam.setText("Naam");
+
+        txtNaam.setToolTipText("");
+
+        lbOmschr.setText("Omschr.");
+        lbOmschr.setToolTipText("");
+
+        txtOmschr.setToolTipText("");
+
+        lbLogNiveau.setText("Logniveau");
+        lbLogNiveau.setToolTipText("");
+
+        cmbLogNiveau.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Geen logging", "Niet persistent", "Persistent" }));
+
+        chkDrukknop.setText("Drukknop");
+        chkDrukknop.setToolTipText("");
+
+        lbAutoOff.setText("Auto Off (sec)");
+
+        lbModel.setText("Model");
+
+        txtModel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtModelKeyTyped(evt);
             }
         });
 
-        cmbLogNiveau.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Geen logging", "Niet persistent", "Persistent" }));
+        lbLAN.setText("LAN");
+        lbLAN.setToolTipText("");
+
+        txtLAN.setToolTipText("");
+
+        lbWachtwoord.setText("Wachtwoord");
+        lbWachtwoord.setToolTipText("");
+
+        txtWachtwoord.setToolTipText("");
+
+        lbMAC.setText("MAC");
+        lbMAC.setToolTipText("");
 
         txtMAC1.setToolTipText("");
         txtMAC1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -254,13 +248,6 @@ public class FrmSettings extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setText("Reset");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
-            }
-        });
-
         lbUpgradeServer.setText("Upgrade Server");
         lbUpgradeServer.setToolTipText("");
 
@@ -319,6 +306,9 @@ public class FrmSettings extends javax.swing.JFrame {
             }
         });
 
+        lbServerPort.setText("Port:");
+        lbServerPort.setToolTipText("");
+
         txtServerPort.setToolTipText("");
         txtServerPort.setMaximumSize(new java.awt.Dimension(6, 20));
         txtServerPort.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -332,10 +322,27 @@ public class FrmSettings extends javax.swing.JFrame {
             }
         });
 
-        lbServerPort.setText("Port:");
-        lbServerPort.setToolTipText("");
+        btnLees.setLabel("Lees");
+        btnLees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLeesActionPerformed(evt);
+            }
+        });
 
-        lbAutoOff.setText("Auto Off (sec)");
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
+        btnSchrijf.setText("Schrijf");
+        btnSchrijf.setToolTipText("");
+        btnSchrijf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSchrijfActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -363,52 +370,27 @@ public class FrmSettings extends javax.swing.JFrame {
                                     .addComponent(txtIP3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtIP4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)
                                     .addComponent(lbMelding, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtLAN, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGap(9, 9, 9)
-                                            .addComponent(txtWachtwoord, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbServerPort)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtServerPort, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                    .addComponent(cmbLogNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(chkDrukknop))
-                                                .addComponent(txtNaam, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtOmschr, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                    .addGap(34, 34, 34)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txtMAC1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtMAC2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtMAC3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtMAC4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtMAC5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtMAC6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(0, 222, Short.MAX_VALUE)
+                                    .addComponent(lbServerPort)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtServerPort, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnReset)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnSchrijf))))
+                                    .addComponent(btnSchrijf))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtLAN, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtWachtwoord, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(10, 10, 10)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lbWachtwoord)
-                                .addComponent(lbMAC)
                                 .addComponent(lbLAN))
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -425,17 +407,45 @@ public class FrmSettings extends javax.swing.JFrame {
                                 .addComponent(txtServerIP3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtServerIP4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnLees)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lbModel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(51, 51, 51))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lbAutoOff)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtAutoOff, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(61, 95, Short.MAX_VALUE)
+                                    .addComponent(txtMAC1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtMAC2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtMAC3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtMAC4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtMAC5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtMAC6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbMAC)
+                                    .addGap(226, 226, 226)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLees)
-                                .addGap(73, 73, 73)
-                                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbAutoOff)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtAutoOff, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(79, 79, 79)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cmbLogNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(chkDrukknop))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtOmschr, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNaam, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,7 +466,7 @@ public class FrmSettings extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbOmschr)
                     .addComponent(txtOmschr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbLogNiveau)
                     .addComponent(cmbLogNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,7 +475,11 @@ public class FrmSettings extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAutoOff)
                     .addComponent(txtAutoOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbModel)
+                    .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbLAN)
                     .addComponent(txtLAN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -473,7 +487,7 @@ public class FrmSettings extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbWachtwoord)
                     .addComponent(txtWachtwoord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtMAC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -483,36 +497,23 @@ public class FrmSettings extends javax.swing.JFrame {
                         .addComponent(txtMAC5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtMAC6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbMAC))
-                .addGap(18, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lbUpgradeServer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbServerIP)
+                    .addComponent(txtServerIP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtServerIP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtServerIP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtServerIP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtServerPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbServerPort))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbUpgradeServer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbServerIP)
-                            .addComponent(txtServerIP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtServerIP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtServerIP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtServerIP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtServerPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbServerPort))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnReset)
-                            .addComponent(btnLees)
-                            .addComponent(btnSchrijf))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))))))
+                    .addComponent(btnReset)
+                    .addComponent(btnLees)
+                    .addComponent(btnSchrijf))
+                .addContainerGap())
         );
 
         pack();
@@ -683,6 +684,10 @@ public class FrmSettings extends javax.swing.JFrame {
         sTestPortField(txtServerPort);
     }//GEN-LAST:event_txtServerPortFocusLost
 
+    private void txtModelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModelKeyTyped
+        hInputCijfer(evt);
+    }//GEN-LAST:event_txtModelKeyTyped
+
     private void hInputCijfer(KeyEvent pEvent) {
         char lInput;
 
@@ -807,6 +812,7 @@ public class FrmSettings extends javax.swing.JFrame {
             txtMAC6.setText(Setting.xIntToHex(mSetting.xMacPos(5)));
             txtNaam.setText(mSetting.xNaam());
             txtOmschr.setText(mSetting.xOmschr());
+            txtModel.setText(String.valueOf(mSetting.xModel()));
             txtWachtwoord.setText(mSetting.xWachtwoord());
             chkDrukknop.setSelected(mSetting.xDrukknop());
             txtAutoOff.setText(String.valueOf(mSetting.xAutoOff()));
@@ -833,6 +839,7 @@ public class FrmSettings extends javax.swing.JFrame {
         txtMAC6.setEnabled(pEnable);
         txtNaam.setEnabled(pEnable);
         txtOmschr.setEnabled(pEnable);
+        txtModel.setEnabled(pEnable);
         txtWachtwoord.setEnabled(pEnable);
         chkDrukknop.setEnabled(pEnable);
         txtAutoOff.setEnabled(pEnable);
@@ -854,6 +861,7 @@ public class FrmSettings extends javax.swing.JFrame {
         if (lOK) {
             mSetting.xNaam(txtNaam.getText().trim());
             mSetting.xOmschr(txtOmschr.getText().trim());
+            mSetting.xModel(Setting.xStrToInt(txtModel.getText()));
             lLogNiveau = cmbLogNiveau.getSelectedIndex();
             if (lLogNiveau < 0) {
                 lLogNiveau = 0;
@@ -1016,15 +1024,13 @@ public class FrmSettings extends javax.swing.JFrame {
     private javax.swing.JButton btnSchrijf;
     private javax.swing.JCheckBox chkDrukknop;
     private javax.swing.JComboBox<String> cmbLogNiveau;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
-    private javax.swing.Box.Filler filler3;
     private javax.swing.JLabel lbAutoOff;
     private javax.swing.JLabel lbIP;
     private javax.swing.JLabel lbLAN;
     private javax.swing.JLabel lbLogNiveau;
     private javax.swing.JLabel lbMAC;
     private javax.swing.JLabel lbMelding;
+    private javax.swing.JLabel lbModel;
     private javax.swing.JLabel lbNaam;
     private javax.swing.JLabel lbOmschr;
     private javax.swing.JLabel lbServerIP;
@@ -1043,6 +1049,7 @@ public class FrmSettings extends javax.swing.JFrame {
     private javax.swing.JTextField txtMAC4;
     private javax.swing.JTextField txtMAC5;
     private javax.swing.JTextField txtMAC6;
+    private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtNaam;
     private javax.swing.JTextField txtOmschr;
     private javax.swing.JTextField txtServerIP1;
